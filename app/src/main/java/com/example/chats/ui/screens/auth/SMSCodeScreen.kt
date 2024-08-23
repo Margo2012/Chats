@@ -1,4 +1,4 @@
-package com.example.chats.ui.screens.registration
+package com.example.chats.ui.screens.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,11 +20,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.chats.ui.theme.ChatsTheme
+
 
 @Composable
-fun RegistrationScreen(modifier: Modifier) {
-    var userName by remember { mutableStateOf("") }
-    var phoneNumber by remember { mutableStateOf("") }
+fun SMSCodeScreen(modifier: Modifier) {
+    var code by remember { mutableStateOf("") }
 
     Box(
         modifier = modifier
@@ -37,32 +38,33 @@ fun RegistrationScreen(modifier: Modifier) {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             OutlinedTextField(
-                value = userName,
-                onValueChange = { userName = it },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("User Name") }
-            )
-            OutlinedTextField(
-                value = phoneNumber,
-                onValueChange = { phoneNumber = it },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("Phone Number") }
+                value = code,
+                onValueChange = { newCode ->
+                    code = newCode
+                },
+                label = { Text("Verification Code") },
+                modifier = Modifier.fillMaxWidth()
             )
             Button(
                 onClick = { /*TODO*/ },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Register")
+                Text("Verify")
             }
+
         }
+
     }
+
 }
 
 @Preview
 @Composable
-fun PreviewRegistrationScreen() {
-    RegistrationScreen(
-        modifier = Modifier
-            .background(color = MaterialTheme.colorScheme.background)
-    )
+fun PreviewSMSCodeScreen() {
+    ChatsTheme {
+        SMSCodeScreen(
+            modifier = Modifier
+                .background(color = MaterialTheme.colorScheme.background)
+        )
+    }
 }

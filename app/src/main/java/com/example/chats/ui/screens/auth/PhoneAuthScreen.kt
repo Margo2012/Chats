@@ -1,4 +1,4 @@
-package com.example.chats.ui.screens.registration
+package com.example.chats.ui.screens.auth
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,10 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.chats.ui.theme.ChatsTheme
+
 
 @Composable
-fun RegistrationScreen(modifier: Modifier) {
-    var userName by remember { mutableStateOf("") }
+fun PhoneAuthScreen(modifier: Modifier) {
     var phoneNumber by remember { mutableStateOf("") }
 
     Box(
@@ -33,26 +34,22 @@ fun RegistrationScreen(modifier: Modifier) {
         contentAlignment = Alignment.Center
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             OutlinedTextField(
-                value = userName,
-                onValueChange = { userName = it },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text("User Name") }
-            )
-            OutlinedTextField(
                 value = phoneNumber,
-                onValueChange = { phoneNumber = it },
+                onValueChange = { newPhoneNumber ->
+                    phoneNumber = newPhoneNumber
+                },
                 modifier = Modifier.fillMaxWidth(),
-                label = { Text("Phone Number") }
+                label = { Text(text = "Phone Number") }
             )
             Button(
                 onClick = { /*TODO*/ },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Register")
+                Text(text = "Sign in")
             }
         }
     }
@@ -60,9 +57,13 @@ fun RegistrationScreen(modifier: Modifier) {
 
 @Preview
 @Composable
-fun PreviewRegistrationScreen() {
-    RegistrationScreen(
-        modifier = Modifier
-            .background(color = MaterialTheme.colorScheme.background)
-    )
+fun PreviewPhoneAuthScreen() {
+    ChatsTheme {
+        PhoneAuthScreen(
+            modifier = Modifier
+                .background(color = MaterialTheme.colorScheme.background)
+        )
+    }
 }
+
+
