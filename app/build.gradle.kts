@@ -66,9 +66,22 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.gson)
 
+    // OkHttp for handling HTTP requests
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor.v491)
+
     //hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
     ksp(libs.hilt.compiler)
+
+    // JWT Handling
+    implementation (libs.jwtdecode)
+
+    // Coil for image loading (avatar handling)
+    implementation(libs.coil)
+
+    // Coroutines
+    implementation (libs.kotlinx.coroutines.android)
 }
