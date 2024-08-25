@@ -88,4 +88,12 @@ dependencies {
     // Coroutines
     implementation (libs.kotlinx.coroutines.android)
     implementation (libs.kotlinx.coroutines.core)
+
+    // For phone number formatting
+    implementation (libs.libphonenumber)
+    implementation (libs.libphonenumber.android)
+
+    // Accompanist flow layout (удобно для UI компонента с флагом и кодом страны)
+    implementation (libs.accompanist.flowlayout)
+
 }

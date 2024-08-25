@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -22,9 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.chats.ui.theme.ChatsTheme
 
-
 @Composable
-fun PhoneAuthScreen(modifier: Modifier) {
+fun PhoneAuthScreen(modifier: Modifier = Modifier) {
     var phoneNumber by remember { mutableStateOf("") }
 
     Box(
@@ -37,16 +35,15 @@ fun PhoneAuthScreen(modifier: Modifier) {
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            OutlinedTextField(
+            PhoneInput(
                 value = phoneNumber,
-                onValueChange = { newPhoneNumber ->
-                    phoneNumber = newPhoneNumber
-                },
-                modifier = Modifier.fillMaxWidth(),
-                label = { Text(text = "Phone Number") }
+                onValueChange = { phoneNumber = it },
+                label = { Text(text = "Phone Number") },
+                locale = "US", // Устанавливаем регион по умолчанию
+                modifier = Modifier.fillMaxWidth()
             )
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { /*TODO: Обработать вход*/ },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "Sign in")
@@ -65,5 +62,4 @@ fun PreviewPhoneAuthScreen() {
         )
     }
 }
-
 
