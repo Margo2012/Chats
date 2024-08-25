@@ -27,6 +27,7 @@ squareupLoggingInterceptor = "4.9.1"
 firebaseCrashlyticsBuildtools = "3.0.2"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
+mediationTestSuite = "3.0.0"
 
 [libraries]
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanistFlowlayout" }
@@ -63,6 +64,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+mediation-test-suite = { group = "com.google.android.ads", name = "mediation-test-suite", version.ref = "mediationTestSuite" }
 
 
 
