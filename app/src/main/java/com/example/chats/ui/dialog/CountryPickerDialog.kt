@@ -57,13 +57,13 @@ fun CountryPickerDialog(
 @DrawableRes
 fun getFlagResource(countryCode: String): Int {
     return when (countryCode) {
-        "RU" -> R.drawable.flag_russia
-        "US" -> R.drawable.flag_usa
+        "RU" -> R.drawable.flag_ru
+        "US" -> R.drawable.flag_us
         "DE" -> R.drawable.flag_germany
-        "GB" -> R.drawable.flag_uk
+        "GB" -> R.drawable.flag_gb
         "FR" -> R.drawable.flag_france
         "ES" -> R.drawable.flag_spain
-        else -> R.drawable.ic_default_flag  // Флаг по умолчанию или иконка
+        else -> R.drawable.flag_ru // Флаг по умолчанию или иконка
     }
 }
 
