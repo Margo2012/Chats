@@ -14,16 +14,17 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil
 
 @Composable
 fun PhoneInput(
+    modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
     locale: String? = "US", // США указан как регион по умолчанию
     isError: Boolean = false,
     label: @Composable (() -> Unit)? = null,
-    modifier: Modifier = Modifier
+
 ) {
     val phoneNumberUtil = remember { PhoneNumberUtil.getInstance() }
     var displayValue by remember { mutableStateOf(value) }
-    var region by remember { mutableStateOf(locale) }
+    val region by remember { mutableStateOf(locale) }
 
     fun formatPhoneNumber(input: String): String {
         return try {

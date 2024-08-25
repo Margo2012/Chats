@@ -36,12 +36,12 @@ fun PhoneAuthScreen(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             PhoneInput(
+                modifier = Modifier.fillMaxWidth(),
                 value = phoneNumber,
                 onValueChange = { phoneNumber = it },
                 label = { Text(text = "Phone Number") },
                 locale = "US", // Устанавливаем регион по умолчанию
-                modifier = Modifier.fillMaxWidth()
-            )
+                )
             Button(
                 onClick = { /*TODO: Обработать вход*/ },
                 modifier = Modifier.fillMaxWidth()
