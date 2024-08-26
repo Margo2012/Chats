@@ -7,7 +7,7 @@ import androidx.room.Query
 import com.example.chats.data.model.User
 import kotlinx.coroutines.flow.Flow
 
-@Dao
+/*@Dao
 interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(user: User)
@@ -16,5 +16,20 @@ interface UserDao {
     fun getUser(): Flow<User>
 
     @Query("Delete from users")
+    suspend fun deleteAll()
+}*/
+
+@Dao
+interface UserDao {
+    @Query("SELECT * FROM users WHERE id = :id")
+    fun getUserById(id: Int): Flow<User>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(user: User)
+
+    @Query("DELETE FROM users WHERE id = :id")
+    suspend fun deleteById(id: Int)
+
+    @Query("DELETE FROM users")
     suspend fun deleteAll()
 }

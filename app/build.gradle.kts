@@ -80,11 +80,14 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     ksp(libs.hilt.compiler)
 
+    implementation(libs.timber)
+
     // JWT Handling
     implementation (libs.jwtdecode)
 
     // Coil for image loading (avatar handling)
     implementation(libs.coil)
+    implementation (libs.coil.compose)
 
     // Coroutines
     implementation (libs.kotlinx.coroutines.android)
